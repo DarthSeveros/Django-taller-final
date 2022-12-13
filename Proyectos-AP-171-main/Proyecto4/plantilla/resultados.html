@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Resultados de la Busqueda</title>
+</head>
+<body>
+    <p>Estas Buscando: <strong>{{query}}</strong></p>
+
+    {% if productos %}
+        <p>Productos encontrados: {{productos|length}} productos</p>
+        <ul>
+            {%for productos in productos %}
+                <li>{{productos.nombre}}</li>
+                
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No estan los productos</p>
+    {% endif %}
+</body>
+</html>
