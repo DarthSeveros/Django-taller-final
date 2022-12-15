@@ -18,7 +18,7 @@ class Participante(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     telefono = models.PositiveIntegerField()
-    fecha_inscripcion = models.DateTimeField()
+    fecha_inscripcion = models.DateTimeField(auto_now_add=True, blank=True)
     institucion = models.ForeignKey(Institucion, on_delete=models.CASCADE)
     estado = models.CharField(max_length=10, choices=ESTADO_CHOICES)
     observacion = models.CharField(max_length=100, blank=True)

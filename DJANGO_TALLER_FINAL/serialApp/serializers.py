@@ -1,4 +1,3 @@
-from sqlite3 import paramstyle
 from rest_framework import serializers
 from serialApp.models import Participante, Institucion
 

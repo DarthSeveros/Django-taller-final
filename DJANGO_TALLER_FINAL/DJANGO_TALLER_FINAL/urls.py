@@ -15,7 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from serialApp import views as serialViews
+from seminario import views as seminarioViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('', seminarioViews.inicio, name='inicio'),
+
+    path('api_institucion/', serialViews.institucion_list, name='api_institucion'),
+    path('api_institucion/<int:id>', serialViews.institucion_detalle, name='api_institucion_detalle'),
+
+    path('api_participante/', serialViews.ListaParticipantes.as_view(), name='api_participante'),
+    path('api_participante/<int:id>', serialViews.DetalleParticipante.as_view(), name='api_participante_detalle'),
+
+    path('participantes/', seminarioViews.participantes, name='participantes'),
+
+    path('instituciones/', seminarioViews.instituciones, name='instituciones'),
 ]

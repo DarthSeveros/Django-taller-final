@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Instituciones{% endblock title %}
+
+{% block body %}
+<body>
+{% include 'header.html' %}
+
+{% if instituciones %}
+    {% for institucion in instituciones %}
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre institución</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ institucion.id }}</td>
+                    <td>{{ institucion.nombre }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    {% endfor %}
+{% else %}
+Nose encuentra nada
+{% endif %}
+
+
+</body>
+{% endblock body %}
