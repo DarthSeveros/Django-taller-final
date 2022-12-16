@@ -29,7 +29,10 @@ urlpatterns = [
     path('api_participante/', serialViews.ListaParticipantes.as_view(), name='api_participante'),
     path('api_participante/<int:id>', serialViews.DetalleParticipante.as_view(), name='api_participante_detalle'),
 
-    path('participantes/', seminarioViews.participantes, name='participantes'),
+    path('participantes/', seminarioViews.ListaParticipante.as_view(), name='participantes'),
+    path('ingresar_participante/', seminarioViews.IngresarParticipante.as_view(), name='ingresar_participante'),
 
     path('instituciones/', seminarioViews.instituciones, name='instituciones'),
+    path('ingresar_institucion/', seminarioViews.ingresar_institucion, name='ingresar_institucion'),
+
 ]
