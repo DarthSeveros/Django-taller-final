@@ -2,7 +2,36 @@
 {% block title %}Inicio{% endblock title %}
 
 {% block body %}
-<body>
+<body class="bg-light">
     {% include 'header.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Participantes</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a href="{% url 'participantes' %}" class="card-link">Lista de participantes</a></li>
+                      <li class="list-group-item"><a href="{% url 'ingresar_participante' %}" class="card-link">Agregar participante</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Instituciones</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a href="{% url 'instituciones' %}" class="card-link">Lista de instituciones</a></li>
+                      <li class="list-group-item"><a href="{% url 'ingresar_institucion' %}" class="card-link">Agregar intititución</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </body>
 {% endblock body %}

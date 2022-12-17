@@ -11,6 +11,7 @@ class ListaParticipantes(APIView):
     def get(self, request):
         participante = Participante.objects.all()
         serial = ParticipanteSerializer(participante, many=True)
+        print(serial.data)
         return Response(serial.data)
 
     def post(self, request):

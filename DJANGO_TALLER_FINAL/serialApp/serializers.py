@@ -5,6 +5,7 @@ class ParticipanteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Participante
         fields = '__all__'
+        depth = 1
 
 class InstitucionSerializer(serializers.ModelSerializer):
     class Meta:

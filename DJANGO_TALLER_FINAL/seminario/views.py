@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 from django.views import View
 from serialApp.forms import ParticipanteForm, InstitucionForm
 from django.http import JsonResponse
+from django.urls import reverse
 
 
 # Create your views here.
@@ -28,7 +29,15 @@ class IngresarParticipante(View):
 
     def post(self, request):
         form = ParticipanteForm(request.POST)
-        return render(request, 'ingresar_participante.html')
+        if form.is_valid():
+            data = form.cleaned_data
+            data['institucion'] = data['institucion'].id
+            requests.post('http://localhost:8000/api_participante/', data=data)
+            return redirect(reverse('participantes'))
+        context = {
+            'form': form
+        }
+        return render(request, 'ingresar_participante.html', context)
 
 #########################################################################
 

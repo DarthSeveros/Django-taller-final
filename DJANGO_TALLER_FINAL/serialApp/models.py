@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 ESTADO_CHOICES = (
+    ('', 'Seleccione...'),
     ('RESERVADO', 'Reservado'),
     ('COMPLETADO', 'Completado'),
     ('ANULADA', 'Anulada'),
