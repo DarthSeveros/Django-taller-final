@@ -28,8 +28,17 @@
         <td>{{ participante.telefono }}</td>
         <td>{{ participante.institucion.nombre }}</td>
         <td>{{ participante.estado }}</td>
-        <td>{{ participante.fecha_inscripcion }}</td>
+        <td>{{ participante.fecha_inscripcion}}</td>
         <td>{{ participante.observacion }}</td>
+        <td><a href="{% url 'actualizar_participante' id=participante.id %}" class="btn btn-success btn-sm float-end"><i class="bi bi-pencil"></i></a></td>
+        <td>
+            <form method="post" action="{% url 'eliminar_participante' id=participante.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm float-start">
+                    <i class="bi bi-trash"></i>
+                </button>
+             </form>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
@@ -37,7 +46,9 @@
 </div>
     
 {% else %}
-No se encuentran participantes en el sistema
+<div class="alert alert-primary" role="alert">
+    No se encuentran participantes en el sistema
+</div>  
 {% endif %}
 <table class="table">
     <tr>

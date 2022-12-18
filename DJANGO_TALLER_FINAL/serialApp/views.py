@@ -4,18 +4,18 @@ from rest_framework import status
 from rest_framework.views import APIView
 from django.http import Http404
 from .models import Participante, Institucion
-from .serializers import InstitucionSerializer, ParticipanteSerializer
+from .serializers import InstitucionSerializer, ListarParticipanteSerializer, InsertarParticipanteSerializer
 from rest_framework.decorators import api_view
 
 class ListaParticipantes(APIView):
     def get(self, request):
         participante = Participante.objects.all()
-        serial = ParticipanteSerializer(participante, many=True)
-        print(serial.data)
+        serial = ListarParticipanteSerializer(participante, many=True)
         return Response(serial.data)
 
     def post(self, request):
-        serial = ParticipanteSerializer(data = request.data)
+        serial = InsertarParticipanteSerializer(data = request.data)
+        print(serial)
         if serial.is_valid():
             serial.save()
             return Response(serial.data, status=status.HTTP_201_CREATED)
@@ -30,12 +30,12 @@ class DetalleParticipante(APIView):
 
     def get(self, request, pk):
         participante = self.get_object(pk)
-        serial = ParticipanteSerializer(participante)
+        serial = ListarParticipanteSerializer(participante)
         return Response(serial.data)
 
     def put(self, request, pk):
         participante = self.get_object(pk)
-        serial = ParticipanteSerializer(participante, data=request.data)
+        serial = InsertarParticipanteSerializer(participante, data=request.data)
         if serial.is_valid():
             serial.save()
             return Response(serial.data)

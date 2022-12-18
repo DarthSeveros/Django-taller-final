@@ -27,12 +27,14 @@ urlpatterns = [
     path('api_institucion/<int:id>', serialViews.institucion_detalle, name='api_institucion_detalle'),
 
     path('api_participante/', serialViews.ListaParticipantes.as_view(), name='api_participante'),
-    path('api_participante/<int:id>', serialViews.DetalleParticipante.as_view(), name='api_participante_detalle'),
+    path('api_participante/<int:pk>', serialViews.DetalleParticipante.as_view(), name='api_participante_detalle'),
 
     path('participantes/', seminarioViews.ListaParticipante.as_view(), name='participantes'),
     path('ingresar_participante/', seminarioViews.IngresarParticipante.as_view(), name='ingresar_participante'),
+    path('eliminar_participante/<int:id>', seminarioViews.EliminarParticipante.as_view(), name='eliminar_participante'),
+    path('actualizar_participante/<int:id>', seminarioViews.ActualizarParticipante.as_view(), name='actualizar_participante'),
 
     path('instituciones/', seminarioViews.instituciones, name='instituciones'),
     path('ingresar_institucion/', seminarioViews.ingresar_institucion, name='ingresar_institucion'),
-
+    path('eliminar_institucion/<int:id>', seminarioViews.eliminar_institucion, name='eliminar_institucion'),
 ]

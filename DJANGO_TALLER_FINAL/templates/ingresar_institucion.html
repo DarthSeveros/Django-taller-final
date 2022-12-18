@@ -7,11 +7,19 @@
     {% include 'header.html' %}
     <div class="container">
         <div class="py-5 text-center">
-            <h2>Ingresar institución</h2>
+            <h1 class="display-1">Ingresar institución</h1>
         </div>
         <form method="POST" action="{% url 'ingresar_institucion' %}">
             <table class="table">
-                {{ form.as_table }}
+                <tr>
+                    <td><strong>{{ form.nombre.label }}:</strong></td>
+                    <td>
+                        {{ form.nombre }}
+                        {% for error in form.nombre.errors %}
+                            <p class="text-danger">{{error}}</p>
+                        {% endfor %}
+                    </td>
+                </tr>
                 {% csrf_token %}
                 <tr>
                     <td>

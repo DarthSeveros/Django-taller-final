@@ -9,24 +9,24 @@
             <div class="col">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Participantes</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h3 class="card-title" >Participantes</h3>
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><a href="{% url 'participantes' %}" class="card-link">Lista de participantes</a></li>
-                      <li class="list-group-item"><a href="{% url 'ingresar_participante' %}" class="card-link">Agregar participante</a></li>
+                      <li class="list-group-item"><a href="{% url 'participantes' %}" class="card-link text-decoration-none">Lista de participantes</a></li>
+                      <li class="list-group-item"><a href="{% url 'ingresar_participante' %}" class="card-link text-decoration-none">Agregar participante</a></li>
+                      <li class="list-group-item"><a href="{% url 'api_participante' %}" class="card-link text-decoration-none">API participantes</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Instituciones</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h3 class="card-title">Instituciones</h3>
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><a href="{% url 'instituciones' %}" class="card-link">Lista de instituciones</a></li>
-                      <li class="list-group-item"><a href="{% url 'ingresar_institucion' %}" class="card-link">Agregar intititución</a></li>
+                      <li class="list-group-item"><a href="{% url 'instituciones' %}" class="card-link text-decoration-none">Lista de instituciones</a></li>
+                      <li class="list-group-item"><a href="{% url 'ingresar_institucion' %}" class="card-link text-decoration-none">Agregar intititución</a></li>
+                      <li class="list-group-item"><a href="{% url 'api_institucion' %}" class="card-link text-decoration-none">API Insitucion</a></li>
                     </ul>
                 </div>
             </div>

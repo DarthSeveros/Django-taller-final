@@ -18,7 +18,6 @@ class InstitucionForm(forms.ModelForm):
             )
         }
         fields = '__all__'
-        
 
 class ParticipanteForm(forms.ModelForm):
     class Meta:

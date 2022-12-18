@@ -20,6 +20,11 @@
             <tr>
                 <td>{{ institucion.id }}</td>
                 <td>{{ institucion.nombre }}</td>
+                <td>
+                    <a type="button" href={% url 'eliminar_institucion' id=institucion.id %} class="btn btn-danger btn-sm float-start">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

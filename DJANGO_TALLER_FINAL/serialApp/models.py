@@ -12,7 +12,8 @@ ESTADO_CHOICES = (
 
 class Institucion(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True, 
+                    error_messages={"unique": "El nombre de la institución ya existe."})
 
     def __str__(self):
         return self.nombre
